@@ -1,0 +1,168 @@
+.main-article {
+  @apply leading-normal #{!important};
+
+  .article-grid {
+    @apply grid text-xl pb-5;
+    grid-template-columns: 1fr 1fr 10px 760px 10px 1fr 1fr;
+  }
+
+  .article-grid > * {
+    grid-column-start: 4;
+    grid-column-end: 4;
+  }
+
+  .article-grid > figure {
+    @apply mt-4 mx-0 mb-5;
+    grid-column-start: 2;
+    grid-column-end: -2;
+  }
+
+  .article-grid > blockquote {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+
+  @media screen and (max-width: 992px) {
+    .article-grid {
+      @apply grid;
+      grid-template-columns: 1fr 1fr 10px 650px 10px 1fr 1fr;
+    }
+
+    .article-grid > * {
+      grid-column-start: 4;
+      grid-column-end: 4;
+    }
+
+    .article-grid > figure {
+      @apply mt-4 mx-0 mb-5;
+      grid-column-start: 2;
+      grid-column-end: -2;
+    }
+
+    .article-grid > blockquote {
+      grid-column: 3 / 5;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .article-grid {
+      @apply grid;
+      grid-template-columns: 20px auto 20px;
+      p {
+        @apply text-lg;
+      }
+
+      pre {
+        @apply whitespace-pre-wrap;
+      }
+    }
+
+    .article-grid > * {
+      grid-column-start: 2;
+      grid-column-end: 2;
+    }
+
+    .article-grid > figure {
+      @apply my-4 mx-0;
+      grid-column: 2;
+    }
+
+    .article-grid > blockquote {
+      grid-column: 2;
+    }
+  }
+}
+
+.two-column-article {
+  @apply grid max-w-[100vw];
+  grid-template-columns: 45% 55%;
+  grid-template-areas: "Info Content";
+
+  .info-article {
+    grid-area: Info;
+    @apply relative;
+  }
+
+  .content-article {
+    grid-area: Content;
+    @apply py-8;
+
+    .two-column-article-grid {
+      @apply grid text-xl leading-normal #{!important};
+      grid-template-columns: 1fr 10px 5fr 10px 1fr;
+    }
+
+    .two-column-article-grid > * {
+      grid-column-start: 3;
+      grid-column-end: 3;
+    }
+
+    .two-column-article-grid > figure {
+      @apply mt-1 mx-0 mb-4;
+    }
+
+    .two-column-article-grid > blockquote {
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+
+    @media screen and (max-width: 1200px) {
+      .two-column-article-grid {
+        @apply grid;
+        grid-template-columns: 1fr 10px 8fr 10px 1fr;
+      }
+    }
+
+    @media screen and (max-width: 992px) {
+      .two-column-article-grid {
+        @apply grid;
+        grid-template-columns: 1fr 1fr 10px 600px 10px 1fr 1fr;
+      }
+
+      .two-column-article-grid > * {
+        grid-column-start: 4;
+        grid-column-end: 4;
+      }
+
+      .two-column-article-grid > blockquote {
+        grid-column: 3 / 5;
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      .two-column-article-grid {
+        @apply grid;
+        grid-template-columns: 20px auto 20px;
+        p {
+          @apply text-lg;
+        }
+
+        pre {
+          @apply whitespace-pre-wrap;
+        }
+      }
+
+      .two-column-article-grid > * {
+        grid-column-start: 2;
+        grid-column-end: 2;
+      }
+
+      .two-column-article-grid > figure {
+        grid-column: 2;
+      }
+
+      .two-column-article-grid > blockquote {
+        grid-column: 2;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .two-column-article {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "Info"
+      "Content";
+  }
+}
